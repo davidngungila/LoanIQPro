@@ -1,0 +1,306 @@
+@import 'tailwindcss';
+
+/* Tailwind CSS v4 directives - valid syntax but may trigger linter warnings */
+/* These are modern Tailwind features and should not be removed */
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Manrope', 'Lato', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    --font-mono: 'Iosevka Charon', 'Courier New', monospace;
+    --font-display: 'MonteCarlo', 'Lato', cursive;
+}
+
+/* Custom CSS for Loan Management System */
+
+/* Color Variables */
+:root {
+    --primary-yellow: #eab308;
+    --primary-yellow-dark: #ca8a04;
+    --primary-yellow-light: #fde047;
+}
+
+/* Font Imports using local fonts */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('./fonts/Inter-Variable.ttf') format('truetype-variations'),
+         url('./fonts/Inter-Variable.woff2') format('woff2-variations'),
+         url('./fonts/Inter-Variable.woff') format('woff-variations');
+}
+
+/* Base Styles */
+body {
+    font-family: var(--font-sans);
+}
+
+/* Sidebar Styles */
+.sidebar {
+    font-family: var(--font-sans);
+    transition: all 0.3s ease;
+}
+
+/* Display Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+}
+
+/* Code/Mono Typography */
+code, pre, .font-mono {
+    font-family: var(--font-mono);
+}
+
+/* Special UI Elements */
+.logo-text {
+    font-family: var(--font-display) !important;
+}
+
+.data-table {
+    font-family: var(--font-mono);
+}
+
+/* Ensure black text on yellow backgrounds */
+.bg-yellow-400,
+.bg-yellow-500,
+.from-yellow-400,
+.from-yellow-500,
+.to-yellow-400,
+.to-yellow-500 {
+    color: #000000 !important;
+}
+
+.bg-yellow-400 *,
+.bg-yellow-500 *,
+.from-yellow-400 *,
+.from-yellow-500 *,
+.to-yellow-400 *,
+.to-yellow-500 * {
+    color: inherit !important;
+}
+
+/* Specific sidebar text colors */
+aside.bg-gradient-to-b .text-white {
+    color: #000000 !important;
+}
+
+aside.bg-gradient-to-b h1,
+aside.bg-gradient-to-b h2,
+aside.bg-gradient-to-b h3,
+aside.bg-gradient-to-b p,
+aside.bg-gradient-to-b span,
+aside.bg-gradient-to-b div {
+    color: #000000 !important;
+}
+
+.sidebar-item {
+    transition: all 0.2s ease;
+}
+
+.sidebar-item:hover {
+    transform: translateX(2px);
+}
+
+.dropdown-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.dropdown-menu.show {
+    max-height: 500px;
+}
+
+/* Card Styles */
+.card {
+    transition: all 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styles */
+.btn-primary {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(251, 191, 36, 0.3);
+}
+
+/* Form Styles */
+.form-input {
+    transition: all 0.2s ease;
+}
+
+.form-input:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.15);
+}
+
+/* Table Styles */
+.table-row:hover {
+    background-color: #fef3c7;
+}
+
+/* Status Badge Styles */
+.status-badge {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* Loading Animation */
+.loading-spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #f59e0b;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Notification Styles */
+.notification {
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Chart Container */
+.chart-container {
+    position: relative;
+    height: 300px;
+}
+
+/* Dropdown menu styles */
+.dropdown-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.dropdown-menu:not(.hidden) {
+    max-height: 500px;
+    transition: max-height 0.3s ease-in;
+}
+
+/* Ensure dropdown items are visible */
+.dropdown-menu:not(.hidden) a,
+.dropdown-menu:not(.hidden) span {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Dropdown arrow rotation */
+.rotate-180 {
+    transform: rotate(180deg);
+}
+
+/* Responsive Sidebar */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        position: fixed;
+        z-index: 50;
+        height: 100vh;
+    }
+    
+    .sidebar.open {
+        transform: translateX(0);
+    }
+}
+
+/* Print Styles */
+@media print {
+    .sidebar,
+    .no-print {
+        display: none !important;
+    }
+    
+    .main-content {
+        margin-left: 0 !important;
+    }
+}
+
+/* Dark Mode Support (if needed) */
+@media (prefers-color-scheme: dark) {
+    .dark-mode {
+        background-color: #1f2937;
+        color: #f9fafb;
+    }
+}
+
+/* Accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Focus Styles for Accessibility */
+.focus-visible:focus {
+    outline: 2px solid #f59e0b;
+    outline-offset: 2px;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .btn-primary {
+        border: 2px solid #000;
+    }
+}
